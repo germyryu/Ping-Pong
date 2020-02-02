@@ -1,1 +1,1 @@
-This repository contains all the coding challenges and projecets I have done.
+This repository contains all the coding challenges and projects I have done.
