@@ -1,0 +1,222 @@
+`default_nettype none
+
+module RangeCheck
+    #(parameter WIDTH = 8)
+    (input logic [WIDTH-1:0] val,high,low,
+    output logic is_between);
+
+    assign is_between = (val<=high) && (val>=low);
+
+endmodule : RangeCheck
+
+module RangeCheck_test;
+    logic [7:0] val,high,low;
+    logic is_between;
+    RangeCheck #(8) dut (.*);
+    initial begin
+        $monitor("val:%b high:%b low:%b is_between:%b", val, high, low, is_between);
+        val = 8'd10;
+        high = 8'd20;
+        low = 8'd5;
+        #10
+        high = 8'd7;
+        #10
+        high = 8'd20;
+        low = 8'd15;
+        #10
+        $finish;
+    end
+endmodule: RangeCheck_test
+
+
+
+module OffsetCheck
+    #(parameter WIDTH = 8)
+    (input logic [WIDTH-1:0] val,delta,low,
+    output logic is_between);
+
+    assign is_between = (val<=(low+delta)) && (val>=low);
+
+endmodule: OffsetCheck
+
+module OffsetCheck_test;
+    logic [7:0] val, delta, low;
+    logic is_between;
+    OffsetCheck #(8) dut (.*);
+    initial begin
+        $monitor("val:%b delta:%b low:%b is_between:%b", val, delta, low, is_between);
+        val = 8'd5;
+        low = 8'd1;
+        delta = 8'd9;
+        #10
+        delta = 8'd2;
+        #10
+        low = 8'd5;
+        #10
+        low = 8'd6;
+        #10
+        $finish;
+    end
+endmodule: OffsetCheck_test
+
+module vga
+    (input logic CLOCK_50, reset,
+    output logic HS, VS, blank,
+    output logic [8:0] row,
+    output logic [9:0] col);
+
+    logic clock_en, clock_clear;
+    logic [15:0] clock_count;
+    logic pulse_width;
+    logic back_porch;
+    logic display;
+    logic front_porch;
+    
+    logic colcountclear_n;
+    logic cc_en;
+
+    logic [19:0] line_counter;
+    logic line_counter_reset_n;
+
+
+    RangeCheck #(10) hsrc (clock_count,0,192,pulse_width);
+
+    OffsetCheck #(10) oc1 (clock_count, 96, 192, back_porch);
+    
+    OffsetCheck #(10) oc2 (clock_count, 1280, 288, display);
+
+    OffsetCheck #(10) oc3 (clock_count, 32, 1568, front_porch);
+
+    //incrementing clock
+
+    Counter #(16) c ( , clock_en, clock_clear, , CLOCK_50, 1'b1, clock_count);
+
+    //checking col range and incrementing col
+    
+    assign cc_en = display && clock_count[0];
+    RangeCheck #(10) colrange (clock_count, 0, 12'd1599, colcountclear_n);
+    Counter #(16) col_count ( , cc_en, ~colcountclear_n, 0, CLOCK_50, 1'b1, col);
+
+    assign blank = ~display;
+    assign HS = ~pulse_width;
+
+    Counter #(12) row_count (, ~colcountclear_n, ~line_counter_reset_n, 0, CLOCK_50, 1, row);
+
+    OffsetCheck #(20) VS_check (line_counter, 0, 3199, VS);
+
+    // define line counter
+    
+    RangeCheck #(20) line_counter_check (line_counter, 0, 833599, line_counter_reset_n);
+    Counter #(20) (, 1, ~line_counter_reset_n, 0, CLOCK_50, 1, line_counter);
+
+endmodule : vga
+
+
+module ChipInterface
+    (input logic CLOCK_50,
+    input logic [3:0] KEY,
+    input logic [17:0] SW,
+    output logic [6:0] HEX0, HEX1, HEX2, HEX3,
+                       HEX4, HEX5, HEX6, HEX7,
+    output logic [7:0] VGA_R, VGA_G, VGA_B,
+    output logic VGA_BLANK_N, VGA_CLK, VGA_SYNC_N,
+    output logic VGA_VS, VGA_HS);
+
+    logic reset;
+    logic [8:0] row;
+    logic [9:0] col;
+
+
+    logic blank;
+    assign VGA_BLANK_N = ~blank;
+    vga dut(CLOCK_50, reset, VGA_HS, VGA_VS, blank, row, col);
+
+    assign VGA_R = 0;
+    assign VGA_G = 0;
+    assign VGA_B = 1;
+    assign VGA_SYNC_N = 1;
+    assign VGA_CLK = ~CLOCK_50;
+endmodule: ChipInterface
+
+
+
+module MagComp
+  #(parameter   WIDTH = 8)
+  (output logic             AltB, AeqB, AgtB,
+   input  logic [WIDTH-1:0] A, B);
+
+  assign AeqB = (A == B);
+  assign AltB = (A <  B);
+  assign AgtB = (A >  B);
+
+endmodule: MagComp
+
+module Register
+  #(parameter WIDTH=8)
+  (input  logic [WIDTH-1:0] D,
+   input  logic             en, clear, clock,
+   output logic [WIDTH-1:0] Q);
+   
+  always_ff @(posedge clock)
+    if (en)
+      Q <= D;
+    else if (clear)
+      Q <= 0;
+      
+endmodule : Register
+
+
+module ShiftRegister
+#(parameter WIDTH = 8)
+(input logic [WIDTH-1:0] D,
+input logic en, left, load, clock,
+output logic [WIDTH-1:0] Q);
+
+always_ff @(posedge clock)
+if(load)
+Q <= D;
+else if(en && left)
+Q <= {Q[WIDTH-2:0], 1'b0};
+else if(en && ~left)
+Q <= {1'b0, Q[WIDTH-1:1]};
+
+endmodule: ShiftRegister
+
+
+module Counter
+#(parameter WIDTH=8)
+(input logic [WIDTH-1:0] D,
+input logic en, clear, load, clock, up,
+output logic [WIDTH-1:0] Q);
+
+always_ff @(posedge clock)
+if(clear)
+Q <= 0;
+else if(load)
+Q <= D;
+else if(en&up)
+Q <= Q+1;
+else if(en&~up)
+Q <= Q-1;
+
+endmodule: Counter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

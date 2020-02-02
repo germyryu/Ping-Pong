@@ -1,0 +1,124 @@
+0 
+29
++cli+4
++itf+/usr/local/synopsys/vcs-mx_vJ-2014.12/amd64/lib/vcsd.tab
++memcbk
++vcsd
++vpi
++vpi
+-Mamsrun=
+-Masflags=
+-Mcc=gcc
+-Mcfl= -pipe -fPIC -O -I/usr/local/synopsys/vcs-mx_vJ-2014.12/include
+-Mcplusplus=g++
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags=
+-Mobjects= /usr/local/synopsys/vcs-mx_vJ-2014.12/amd64/lib/libvirsim.so /usr/local/synopsys/vcs-mx_vJ-2014.12/amd64/lib/liberrorinf.so /usr/local/synopsys/vcs-mx_vJ-2014.12/amd64/lib/libsnpsmalloc.so
+-Mout=simv
+-Msaverestoreobj=/usr/local/synopsys/vcs-mx_vJ-2014.12/amd64/lib/vcs_save_restore_new.o
+-Msyslibs=-ldl -lm
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/usr/local/synopsys/vcs-mx_vJ-2014.12/include
+-Xcbug=0x1
+-debug=3
+-gen_obj
+-picarchive
+-sverilog
+/usr/local/synopsys/vcs-mx_vJ-2014.12/amd64/bin/vcs1
+ChipInterface.sv
+82
+sysc_uni_pwd=/afs/ece.cmu.edu/usr/jihoonr/Private/lab5
+no_proxy=localhost,127.0.0.1,.cmu.edu,.cmu.local
+https_proxy=http://proximus.ece.cmu.edu:3128/
+http_proxy=http://proximus.ece.cmu.edu:3128/
+ftp_proxy=http://proximus.ece.cmu.edu:3128/
+binpath=/usr/local/synopsys/vcs-mx_vJ-2014.12/gui/dve/amd64/bin
+XDG_VTNR=1
+XDG_SESSION_TYPE=x11
+XDG_SESSION_ID=21
+XDG_SESSION_DESKTOP=gnome-classic
+XDG_SEAT=seat0
+XDG_RUNTIME_DIR=/run/user/2654468
+XDG_MENU_PREFIX=gnome-
+XDG_DATA_DIRS=/afs/ece.cmu.edu/usr/jihoonr/.local/share/flatpak/exports/share/:/var/lib/flatpak/exports/share/:/usr/local/share/:/usr/share/
+XDG_CURRENT_DESKTOP=GNOME-Classic:GNOME
+XAUTHORITY=/run/gdm/auth-for-jihoonr-XTurUt/database
+WINDOWPATH=1:1
+VTE_VERSION=5202
+VMR_MODE_FLAG=32
+VCS_TARGET_ARCH=amd64
+VCS_PATHMAP_PRELOAD_DONE=1
+VCS_MX_HOME_INTERNAL=1
+VCS_MODE_FLAG=64
+VCS_LIC_EXPIRE_WARNING=0
+VCS_HOME=/usr/local/synopsys/vcs-mx_vJ-2014.12
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH_OVERRIDE=linux
+VCS_ARCH=amd64
+USERNAME=jihoonr
+UNAME=/bin/uname
+TOOL_HOME=/usr/local/synopsys/vcs-mx_vJ-2014.12/amd64
+TCLLIBPATH=/usr/local/synopsys/vcs-mx_vJ-2014.12/gui/dve/auxx/tcllib/lib/tcl8.4 /usr/local/synopsys/vcs-mx_vJ-2014.12/gui/dve/auxx/tcllib/snps_tcl
+SYN_DIR=/usr/local/synopsys/synopsys-2007.03-SP5
+SYNOPSYS=/usr/local/synopsys
+SSH_AUTH_SOCK=/run/user/2654468/keyring/ssh
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+SSH_AGENT_PID=409
+SPECMAN_OUTPUT_TO_TTY=1
+SESSION_MANAGER=local/unix:@/tmp/.ICE-unix/388,unix/unix:/tmp/.ICE-unix/388
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+QUARTUS_64BIT=1
+QT_PLUGIN_PATH=/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
+QT_IM_MODULE=ibus
+QT_GRAPHICSSYSTEM_CHECKED=1
+QTLIB=/usr/lib64/qt-3.3/lib
+QTINC=/usr/lib64/qt-3.3/include
+QTDIR=/usr/lib64/qt-3.3
+OVA_UUM=0
+NO_PROXY=localhost,127.0.0.1,.cmu.edu,.cmu.local
+MODULESHOME=/usr/share/Modules
+MODULEPATH=/usr/share/Modules/modulefiles:/etc/modulefiles
+MDB_SIM_ARGS=-simwarn
+MARCH=amd64
+LOADEDMODULES=
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LC_ALL=C
+KRB5CCNAME=KEYRING:persistent:2654468
+KDEDIRS=/usr
+HTTP_PROXY=http://proximus.ece.cmu.edu:3128/
+HTTPS_PROXY=http://proximus.ece.cmu.edu:3128/
+HISTCONTROL=ignoredups
+GNOME_TERMINAL_SERVICE=:1.85
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/36ff7f6b_1b0c_4ddf_b11c_5f8aa08dd4a7
+GNOME_SHELL_SESSION_MODE=classic
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GDM_LANG=en_US.UTF-8
+GDMSESSION=gnome-classic
+FTP_PROXY=http://proximus.ece.cmu.edu:3128/
+DVE_SIM_SELECT_LOOP=on
+DVE_PSTACK=/usr/bin/gstack
+DVE_AUXX_GUI=/usr/local/synopsys/vcs-mx_vJ-2014.12/gui/dve/auxx/gui
+DVE=/usr/local/synopsys/vcs-mx_vJ-2014.12/gui/dve
+DESKTOP_SESSION=gnome-classic
+DC_HOME=/usr/local/synopsys/synopsys-2007.03-SP5/linux/syn
+DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-nu5mu1373M,guid=d2eadb1abbcdcfcd3ae798735dba166d
+CVS_RSH=ssh
+COLORTERM=truecolor
+CMD=/usr/local/synopsys/vcs-mx_vJ-2014.12/gui/dve/amd64/bin/dve.exe
+BASH_FUNC_module()=() {  eval `/usr/bin/modulecmd bash $*`_}
+AKLOG=/usr/bin/aklog
+0
+2
+1572482128 ChipInterface.sv
+1440743823 /usr/local/synopsys/vcs-mx_vJ-2014.12/amd64/lib/vcsd.tab
+4
+0 
+1440744113 /usr/local/synopsys/vcs-mx_vJ-2014.12/amd64/lib/libvirsim.so
+1440743874 /usr/local/synopsys/vcs-mx_vJ-2014.12/amd64/lib/liberrorinf.so
+1440743866 /usr/local/synopsys/vcs-mx_vJ-2014.12/amd64/lib/libsnpsmalloc.so
+1572482134 simv.daidir

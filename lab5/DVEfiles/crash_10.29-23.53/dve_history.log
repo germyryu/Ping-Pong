@@ -1,0 +1,121 @@
+# Preference setting overrides
+gui_create_pref_key -category {Globals} -key {load_detail_for_funcov} -value_type {bool} -value {false}
+
+# State setting overrides
+gui_state_default_create -off -ini
+gui_set_state_value -category Layout -key child_console_size_x -value 2559
+gui_set_state_value -category Layout -key child_console_size_y -value 169
+gui_set_state_value -category Layout -key child_data_size_x -value 161
+gui_set_state_value -category Layout -key child_data_size_y -value 1096
+gui_set_state_value -category Layout -key child_driver_size_x -value 1311
+gui_set_state_value -category Layout -key child_driver_size_y -value 179
+gui_set_state_value -category Layout -key child_hier_col3 -value {-1}
+gui_set_state_value -category Layout -key child_hier_colpd -value 0
+gui_set_state_value -category Layout -key child_hier_size_x -value 161
+gui_set_state_value -category Layout -key child_hier_size_y -value 1096
+gui_set_state_value -category Layout -key child_source_docknewline -value false
+gui_set_state_value -category Layout -key child_source_pos_x -value {-2}
+gui_set_state_value -category Layout -key child_source_pos_y -value {-15}
+gui_set_state_value -category Layout -key child_source_size_x -value 2240
+gui_set_state_value -category Layout -key child_source_size_y -value 1091
+gui_set_state_value -category Layout -key child_wave_colname -value 369
+gui_set_state_value -category Layout -key child_wave_colvalue -value 369
+gui_set_state_value -category Layout -key child_wave_left -value 743
+gui_set_state_value -category Layout -key child_wave_right -value 1811
+gui_set_state_value -category Layout -key main_pos_x -value 1
+gui_set_state_value -category Layout -key main_pos_y -value 38
+gui_set_state_value -category Layout -key main_size_x -value 2560
+gui_set_state_value -category Layout -key main_size_y -value 1378
+gui_set_state_value -category Layout -key stand_wave_child_docknewline -value false
+gui_set_state_value -category Layout -key stand_wave_child_pos_x -value {-2}
+gui_set_state_value -category Layout -key stand_wave_child_pos_y -value {-15}
+gui_set_state_value -category Layout -key stand_wave_child_size_x -value 2564
+gui_set_state_value -category Layout -key stand_wave_child_size_y -value 1260
+gui_set_state_value -category Layout -key stand_wave_top_pos_x -value 1
+gui_set_state_value -category Layout -key stand_wave_top_pos_y -value 38
+gui_set_state_value -category Layout -key stand_wave_top_size_x -value 2560
+gui_set_state_value -category Layout -key stand_wave_top_size_y -value 1378
+gui_create_state_key -category FindDialog -key m_pMatchCase -value_type bool -value false
+gui_create_state_key -category FindDialog -key m_pMatchWord -value_type bool -value false
+gui_create_state_key -category FindDialog -key m_pUseCombo -value_type string -value {}
+gui_create_state_key -category FindDialog -key m_pWrapAround -value_type bool -value true
+gui_state_default_create -off
+
+# Begin command logging
+gui_sim_run Ucli -exe ./simv -args {-ucligui  } -dir .
+gui_list_select -id Data.1 -selected  { {vga_test.i[31:0]}   }
+gui_list_expand -id  Hier.1   vga_test
+gui_list_select -id Hier.1 -current_item_name vga_test.v -current_item_type Scope  -selected  { vga_test.v   }
+gui_list_select -id Data.1 -selected  { vga_test.v.line_counter_reset_n   }
+gui_list_select -id Data.1 { vga_test.v.line_counter_reset_n  vga_test.v.CLOCK_50  vga_test.v.reset  vga_test.v.HS  vga_test.v.VS  vga_test.v.blank  {vga_test.v.row[8:0]}  {vga_test.v.col[9:0]}  vga_test.v.clock_en  vga_test.v.clock_clear  {vga_test.v.clock_count[15:0]}  vga_test.v.pulse_width  vga_test.v.back_porch  vga_test.v.display  vga_test.v.front_porch  vga_test.v.colcountclear_n  vga_test.v.cc_en  {vga_test.v.line_counter[19:0]}  vga_test.v.line_counter_reset_n   }
+gui_open_window Wave
+gui_list_add -id Wave.1 -from Data.1 { vga_test.v.CLOCK_50 vga_test.v.reset vga_test.v.HS vga_test.v.VS vga_test.v.blank {vga_test.v.row[8:0]} {vga_test.v.col[9:0]} vga_test.v.clock_en vga_test.v.clock_clear {vga_test.v.clock_count[15:0]} vga_test.v.pulse_width vga_test.v.back_porch vga_test.v.display vga_test.v.front_porch vga_test.v.colcountclear_n vga_test.v.cc_en {vga_test.v.line_counter[19:0]} vga_test.v.line_counter_reset_n } -insertionbar
+gui_sim_continue  
+gui_sim_stop 
+gui_wv_scroll_hslidermove -id  Wave.1 0
+gui_list_select -id Wave.1 -selected  { vga_test.v.VS   }
+gui_list_select -id Wave.1 -selected  { vga_test.v.clock_clear   }
+gui_list_select -id Wave.1 -selected  { vga_test.v.VS   }
+gui_wv_scroll_hslidermove -id  Wave.1 83930
+gui_marker_move -id  Wave.1 C1 28168
+gui_wv_scroll_hslidermove -id  Wave.1 4964
+gui_marker_move -id  Wave.1 C1 2031
+gui_wv_scroll_hslidermove -id  Wave.1 0
+gui_marker_move -id  Wave.1 C1 50
+gui_wv_zoom_timerange -id  Wave.1 0 533
+gui_close_window -window TopLevel.1
+gui_wv_zoom_timerange -id  Wave.1 0 294
+gui_marker_move -id  Wave.1 C1 9
+gui_marker_select -id  Wave.1 { C1 }
+gui_marker_move -id  Wave.1 C1 3
+gui_marker_move -id  Wave.1 C1 5
+gui_set_env SIMSETUP::SIMCURRENTDIR /afs/ece.cmu.edu/usr/jihoonr/Private/lab5
+gui_sim_restart -build {vcs -sverilog -debug ChipInterface.sv}
+gui_sim_continue  
+gui_sim_stop 
+gui_wv_scrollleft -id  Wave.1  page
+gui_wv_scroll_hslidermove -id  Wave.1 39294
+gui_marker_move -id  Wave.1 C1 13123
+gui_wv_scroll_hslidermove -id  Wave.1 0
+gui_list_select -id Wave.1 -selected  { vga_test.v.blank   }
+gui_list_select -id Wave.1 -selected  { vga_test.v.colcountclear_n   }
+gui_list_select -id Wave.1 -selected  { vga_test.v.clock_clear   }
+gui_list_select -id Wave.1 -selected  { vga_test.v.clock_en   }
+gui_list_select -id Wave.1 -selected  { vga_test.v.clock_clear   }
+gui_list_select -id Wave.1 -selected  { vga_test.v.clock_en   }
+gui_list_select -id Wave.1 -selected  { vga_test.v.clock_clear   }
+gui_list_select -id Wave.1 -selected  { {vga_test.v.clock_count[15:0]}   }
+gui_sim_restart -build {vcs -sverilog -debug ChipInterface.sv}
+gui_sim_continue  
+gui_sim_stop 
+gui_wv_scroll_hslidermove -id  Wave.1 158026
+gui_marker_move -id  Wave.1 C1 52842
+gui_marker_move -id  Wave.1 C1 52840
+gui_marker_move -id  Wave.1 C1 52795
+gui_wv_zoom_timerange -id  Wave.1 52758 52773
+gui_marker_move -id  Wave.1 C1 52762
+gui_marker_move -id  Wave.1 C1 52759
+gui_wv_zoom_timerange -id  Wave.1 33307 52819
+gui_marker_move -id  Wave.1 C1 39179
+gui_marker_move -id  Wave.1 C1 45513
+gui_marker_move -id  Wave.1 C1 48228
+gui_marker_move -id  Wave.1 C1 49575
+gui_marker_move -id  Wave.1 C1 51870
+gui_wv_scroll_hslidermove -id  Wave.1 1512
+gui_marker_move -id  Wave.1 C1 52642
+gui_marker_move -id  Wave.1 C1 41761
+gui_marker_move -id  Wave.1 C1 38516
+gui_marker_move -id  Wave.1 C1 35978
+gui_marker_move -id  Wave.1 C1 35316
+gui_wv_scroll_hslidermove -id  Wave.1 1512
+gui_wv_zoom_timerange -id  Wave.1 33373 33550
+gui_wv_zoom_timerange -id  Wave.1 0 50147
+gui_sim_continue  
+gui_sim_stop 
+gui_wv_scroll_hslidermove -id  Wave.1 1374
+gui_wv_zoom_timerange -id  Wave.1 84807 85091
+gui_wv_scrollright -id  Wave.1  page
+gui_wv_scrollright -id  Wave.1  page
+gui_wv_scrollleft -id  Wave.1  page
+gui_wv_scroll_hslidermove -id  Wave.1 0
+gui_wv_scroll_hslidermove -id  Wave.1 359962

@@ -1,0 +1,32 @@
+{
+    "std": [
+        "std",
+        "reYIK",
+        "module"
+    ],
+    "vga": [
+        "vga",
+        "ucGPx",
+        "module"
+    ],
+    "vga_test": [
+        "vga_test",
+        "yrmkC",
+        "module"
+    ],
+    "ChipInterface": [
+        "ChipInterface",
+        "VHM6x",
+        "module"
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module"
+    ],
+    "MagComp": [
+        "MagComp",
+        "vaLRj",
+        "module"
+    ]
+}

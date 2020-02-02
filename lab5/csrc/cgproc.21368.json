@@ -1,0 +1,45 @@
+{
+    "Modules": {
+        "MagComp": {},
+        "...MASTER...": {},
+        "std": {},
+        "vga": {
+            "Compiled": "Yes",
+            "Compiled Times": 2
+        },
+        "vga_test": {},
+        "ChipInterface": {}
+    },
+    "CompUnits": {
+        "amcQw_d": {
+            "mode": 4,
+            "mod": "...MASTER...",
+            "out": "amcQw_d.o",
+            "bytes": 9053,
+            "archive": "archive.60/_21368_archive_1.a"
+        },
+        "ucGPx_d": {
+            "mode": 4,
+            "mod": "vga",
+            "out": "ucGPx_d.o",
+            "bytes": 36519,
+            "archive": "archive.60/_21368_archive_1.a"
+        }
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.60/_21368_archive_1.a",
+            "size": 45572,
+            "objects": [
+                [
+                    "amcQw_d.o",
+                    9053
+                ],
+                [
+                    "ucGPx_d.o",
+                    36519
+                ]
+            ]
+        }
+    ]
+}

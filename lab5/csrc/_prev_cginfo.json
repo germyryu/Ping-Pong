@@ -1,0 +1,121 @@
+{
+    "MlibObjs": {},
+    "PrevCompiledModules": {
+        "MagComp": {
+            "vaLRj_d": {
+                "bytes": 7674,
+                "archive": "archive.59/_prev_archive_1.a",
+                "mod": "MagComp",
+                "mode": 4,
+                "out": "vaLRj_d.o"
+            }
+        },
+        "ChipInterface": {
+            "VHM6x_d": {
+                "bytes": 15102,
+                "archive": "archive.59/_prev_archive_1.a",
+                "mod": "ChipInterface",
+                "mode": 4,
+                "out": "VHM6x_d.o"
+            }
+        },
+        "vga_test": {
+            "yrmkC_d": {
+                "bytes": 15623,
+                "archive": "archive.59/_prev_archive_1.a",
+                "mod": "vga_test",
+                "out": "yrmkC_d.o",
+                "mode": 4
+            }
+        },
+        "vga": {
+            "ucGPx_d": {
+                "bytes": 36431,
+                "archive": "archive.59/_20894_archive_1.a",
+                "mod": "vga",
+                "mode": 4,
+                "out": "ucGPx_d.o"
+            }
+        },
+        "std": {
+            "reYIK_d": {
+                "bytes": 34314,
+                "archive": "archive.59/_prev_archive_1.a",
+                "mod": "std",
+                "mode": 4,
+                "out": "reYIK_d.o"
+            }
+        },
+        "...MASTER...": {
+            "amcQw_d": {
+                "bytes": 9053,
+                "archive": "archive.59/_20894_archive_1.a",
+                "mod": "...MASTER...",
+                "out": "amcQw_d.o",
+                "mode": 4
+            }
+        }
+    },
+    "stat": {
+        "nMops": 2580
+    },
+    "SIMBData": {
+        "out": "amcQwB.o",
+        "bytes": 93016
+    },
+    "PEModules": [],
+    "NameTable": {
+        "vga": [
+            "vga",
+            "ucGPx",
+            "module"
+        ],
+        "std": [
+            "std",
+            "reYIK",
+            "module"
+        ],
+        "vga_test": [
+            "vga_test",
+            "yrmkC",
+            "module"
+        ],
+        "ChipInterface": [
+            "ChipInterface",
+            "VHM6x",
+            "module"
+        ],
+        "MagComp": [
+            "MagComp",
+            "vaLRj",
+            "module"
+        ],
+        "...MASTER...": [
+            "SIM",
+            "amcQw",
+            "module"
+        ]
+    },
+    "CompileStrategy": "fullobj",
+    "CurCompileUdps": {},
+    "CompileProcesses": [
+        "cgproc.20894.json"
+    ],
+    "CurCompileModules": [
+        "...MASTER...",
+        "vga"
+    ],
+    "LVLData": [
+        "SIM"
+    ],
+    "Misc": {
+        "daidir_abs": "/afs/ece.cmu.edu/usr/jihoonr/Private/lab5/simv.daidir",
+        "cwd": "/afs/ece.cmu.edu/usr/jihoonr/Private/lab5",
+        "csrc": "csrc",
+        "daidir": "simv.daidir",
+        "csrc_abs": "/afs/ece.cmu.edu/usr/jihoonr/Private/lab5/csrc",
+        "archive_dir": "archive.59",
+        "default_output_dir": "csrc"
+    },
+    "CompileStatus": "Successful"
+}
