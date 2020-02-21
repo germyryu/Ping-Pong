@@ -1,1 +1,1 @@
-This repository contains my Ping Pong game that I created in my hardware class, Structure and Design of Digital Systems (18240), using the RISC240 ISA and SystemVerilog.
+This repository contains my recreation of the classic Pong game implemented using the RISC240 ISA and SystemVerilog. I also connected this hardware description with an FPGA board which I coded to act as a controller for the paddles and to display the score on the FPGA board's hex digit displays.
